@@ -1,0 +1,13 @@
+services:
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    command: mongod
+    restart: unless-stopped
+  scraper:
+    build: .
+    depends_on:
+      - mongo
+    environment:
+      MONGODB_URI: "mongodb://mongo:27017"
