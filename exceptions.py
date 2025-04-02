@@ -1,3 +1,7 @@
+'''
+TODO: Probably would be a better idea to do some kind of exception inheritance here
+'''
+
 class NotFoundError(Exception):
     pass
 
