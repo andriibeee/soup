@@ -83,7 +83,7 @@ def parse_pages_count(src: str) -> int:
     return int(m.group(1))
 
 
-async def parse_page(layout: str | Tag | NavigableString) -> List[Book]:
+def parse_page(layout: str | Tag | NavigableString) -> List[Book]:
     log = structlog.get_logger()
     soup = layout is str and BeautifulSoup(layout, "html.parser") or layout
     prod = soup.find_all("article", class_="product_pod")
